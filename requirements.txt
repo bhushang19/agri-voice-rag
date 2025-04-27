@@ -1,0 +1,7 @@
+fastapi==0.109.0
+uvicorn==0.27.0
+python-dotenv==1.0.0
+websockets==12.0
+twilio==8.10.0
+azure-core==1.29.5
+azure-search-documents==11.4.0
