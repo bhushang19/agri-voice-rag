@@ -188,28 +188,56 @@ The system provides expertise in various agricultural domains:
    - Storage and processing options
    - Farm diversification
 
-## Deployment Instructions
+## Deployment Guide
 
-1. **Prerequisites**:
-   - Azure account with necessary services configured
-   - Python 3.11 installed
-   - Azure CLI installed
+### Prerequisites
+- Azure subscription with required services enabled:
+  - Azure App Service (Python 3.11)
+  - Azure OpenAI GPT-4 with Vision
+  - Azure AI Search
+  - Azure Key Vault (for secrets)
+- Twilio account with Voice API access
+- Python 3.11 installed locally
+- Azure CLI installed and configured
 
-2. **Environment Setup**:
-   - Create a `.env` file in the root directory with required credentials:
-     ```
-     AZURE_OPENAI_API_KEY=<your-key>
-     AZURE_OPENAI_API_ENDPOINT=<your-endpoint>
-     AZURE_SEARCH_ENDPOINT=<your-endpoint>
-     AZURE_SEARCH_KEY=<your-key>
-     AZURE_SEARCH_INDEX=<your-index>
-     AZURE_SEARCH_SEMANTIC_CONFIGURATION=<your-config>
-     ```
+### Setup Steps
 
-3. **Azure Web App Configuration**:
-   - Create Python 3.11 web app with code deployment mode
-   - Enable FTP-based deployment
-   - Set configuration: `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+1. **Azure Resources Setup**
+   ```bash
+   # Login to Azure
+   az login
+   
+   # Create resource group
+   az group create --name <resource-group-name> --location <location>
+   
+   # Create App Service Plan
+   az appservice plan create --name <plan-name> --resource-group <resource-group-name> --sku B1 --is-linux
+   
+   # Create Web App
+   az webapp create --name <app-name> --resource-group <resource-group-name> --plan <plan-name> --runtime "PYTHON|3.11"
+   ```
+
+2. **Environment Configuration**
+   - Create `.env` file with required credentials
+   - Set App Service configuration:
+   ```bash
+   az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings \
+     AZURE_OPENAI_API_KEY="<key>" \
+     AZURE_OPENAI_API_ENDPOINT="<endpoint>" \
+     AZURE_SEARCH_ENDPOINT="<endpoint>" \
+     AZURE_SEARCH_KEY="<key>" \
+     AZURE_SEARCH_INDEX="<index>" \
+     SCM_DO_BUILD_DURING_DEPLOYMENT=true
+   ```
+
+3. **Local Testing**
+   ```bash
+   # Install dependencies
+   pip install -r requirements.txt
+   
+   # Run locally
+   python app.py
+   ```
 
 4. **Deployment Steps**:
    ```bash
@@ -217,8 +245,18 @@ The system provides expertise in various agricultural domains:
    zip -r app.zip requirements.txt app.py
 
    # Deploy to Azure App Service
-   az webapp deploy --resource-group ms-hack --name appmshack01 --src-path "D:\Events\MS-Hack\app.zip"
+   az webapp deploy --resource-group <resource-group-name> --name <app-service-name> --src-path "<path-to-deployment-package>/app.zip"
    ```
+
+   Replace the placeholders:
+   - `<resource-group-name>`: Your Azure resource group name
+   - `<app-service-name>`: Your Azure App Service name
+   - `<path-to-deployment-package>`: Local path to your deployment package
+
+5. **Post-Deployment**
+   - Configure Twilio webhook URL to point to your deployed app's endpoint: `https://<app-name>.azurewebsites.net/incoming-call`
+   - Test the deployment using Twilio's test call feature
+   - Monitor logs: `az webapp log tail --name <app-name> --resource-group <resource-group-name>`
 
 ## Contributing
 
