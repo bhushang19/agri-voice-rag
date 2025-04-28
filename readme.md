@@ -91,23 +91,38 @@ The system has significant potential for expansion. Planned future enhancements 
 
 ### System Components
 
+The following diagram illustrates the high-level architecture of Kisan Mitra. The Azure AI Search Index represents a comprehensive, dynamic index of agricultural data (crop management, soil health, weather, market trends, government schemes, and more). The Azure OpenAI Service block integrates both speech processing (STT/TTS) and language model capabilities.
+
 ```mermaid
 graph TB
-    A[Farmer] -->|Voice Call| B[Twilio Voice Service]
-    B -->|WebSocket Stream| C[FastAPI Backend]
-    C -->|Audio Stream| D[Azure OpenAI Speech Service]
-    D -->|Text| E[Azure OpenAI GPT]
-    E -->|Query| F[Azure Cognitive Search]
-    F -->|Context| E
-    E -->|Response| D
-    D -->|Audio| C
+    subgraph Client Layer
+        A[Farmer/User] -->|Voice Call| B[Twilio Voice Service]
+    end
+
+    subgraph Communication Layer
+        B -->|WebSocket Stream| C[FastAPI Backend Service]
+    end
+
+    subgraph Application Layer
+        C -->|Audio Stream| D[Azure OpenAI GPT 4o realtime]
+        D -->|Semantic Query| E[Azure AI Search Index]
+        E -->|Context & Results| D
+        D -->|Audio Response| C
+    end
+
+    subgraph Deployment Layer
+        I[Azure App Service] -->|Hosts| C
+    end
+
     C -->|Audio Stream| B
     B -->|Voice| A
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
-    style F fill:#bbf,stroke:#333,stroke-width:2px
+    style A fill:#e6e6e6,stroke:#333,stroke-width:1px
+    style B fill:#d9d9d9,stroke:#333,stroke-width:1px
+    style C fill:#cccccc,stroke:#333,stroke-width:1px
+    style D fill:#f2f2f2,stroke:#333,stroke-width:1px
+    style E fill:#e6e6e6,stroke:#333,stroke-width:1px
+    style I fill:#d9d9d9,stroke:#333,stroke-width:1px
 ```
 
 ### Functional Flow
