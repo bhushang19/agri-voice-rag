@@ -151,14 +151,18 @@ sequenceDiagram
 
 - **Backend Framework**: FastAPI
 - **Voice Interface**: Twilio Voice API
-- **AI and ML Services**:
-  - Azure OpenAI GPT for natural language understanding and generation
-  - Azure OpenAI Speech Services for speech-to-text and text-to-speech
-  - Azure Cognitive Search for knowledge base querying
+- **Azure Open AI Services**:
+  - Azure Open AI GPT 4o realtime for natural language understanding and generation
+  - Azure Open AI text embedding model for knowledge base indexing
+- **Azure AI Search Services**:
+  - Azure AI Search for storing and querying agricultural knowledge base
+  - Azure AI Search for semantic search and filtering
 - **Development Tools**:
   - Python 3.11
   - WebSocket protocol for real-time communication
   - Azure App Service for deployment
+  - Azure OpenAI SDK
+  - Azure AI Search SDK
 
 ## Knowledge Base Coverage
 
