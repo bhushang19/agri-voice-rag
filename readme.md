@@ -104,7 +104,7 @@ graph TB
     end
 
     subgraph Application Layer
-        C -->|Audio Stream| D[Azure OpenAI GPT 4o realtime]
+        C -->|Audio Stream| D[Azure OpenAI gpt-4o-realtime-preview]
         D -->|Semantic Query| E[Azure AI Search Index]
         E -->|Context & Results| D
         D -->|Audio Response| C
@@ -154,7 +154,7 @@ sequenceDiagram
 - **Backend Framework**: FastAPI
 - **Voice Interface**: Twilio Voice API
 - **Azure Open AI Services**:
-  - Azure Open AI GPT 4o realtime for natural language understanding and generation
+  - Azure Open AI gpt-4o-realtime-preview for natural language understanding and generation
   - Azure Open AI text embedding model for knowledge base indexing
 - **Azure AI Search Services**:
   - Azure AI Search for storing and querying agricultural knowledge base
