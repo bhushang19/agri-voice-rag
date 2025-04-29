@@ -199,9 +199,8 @@ The system provides expertise in various agricultural domains:
 ### Prerequisites
 - Azure subscription with required services enabled:
   - Azure App Service (Python 3.11)
-  - Azure OpenAI GPT-4 with Vision
+  - Azure OpenAI gpt-4o-realtime-preview deployment
   - Azure AI Search
-  - Azure Key Vault (for secrets)
 - Twilio account with Voice API access
 - Python 3.11 installed locally
 - Azure CLI installed and configured
