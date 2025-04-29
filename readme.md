@@ -117,12 +117,14 @@ graph TB
     C -->|Audio Stream| B
     B -->|Voice| A
 
-    style A fill:#e6e6e6,stroke:#333,stroke-width:1px
-    style B fill:#d9d9d9,stroke:#333,stroke-width:1px
-    style C fill:#cccccc,stroke:#333,stroke-width:1px
-    style D fill:#f2f2f2,stroke:#333,stroke-width:1px
-    style E fill:#e6e6e6,stroke:#333,stroke-width:1px
-    style I fill:#d9d9d9,stroke:#333,stroke-width:1px
+    classDef default fill:#f8f9fa,stroke:#333,stroke-width:1px,color:#333
+    classDef service fill:#e9ecef,stroke:#333,stroke-width:1px,color:#333
+    classDef user fill:#dee2e6,stroke:#333,stroke-width:1px,color:#333
+    classDef search fill:#ced4da,stroke:#333,stroke-width:1px,color:#333
+
+    class A user
+    class B,C,I service
+    class D,E search
 ```
 
 ### Functional Flow
