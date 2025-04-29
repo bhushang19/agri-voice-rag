@@ -262,18 +262,6 @@ The system provides expertise in various agricultural domains:
    - Test the deployment using Twilio's test call feature
    - Monitor logs: `az webapp log tail --name <app-name> --resource-group <resource-group-name>`
 
-## Contributing
-
-We welcome contributions to Kisan Mitra! Please feel free to submit issues, fork the repository, and create pull requests for any improvements.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support and queries, please create an issue in the repository or contact the maintainers.
-
 ---
 
 *Kisan Mitra - Empowering farmers with AI-powered agricultural wisdom*
