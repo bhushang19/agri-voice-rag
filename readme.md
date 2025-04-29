@@ -238,5 +238,8 @@ The system provides expertise in various agricultural domains:
 
 ---
 
+## Demo Recording
+You can find the demo recording of the Kisan Mitra implementation in the demo-recording directory of this repository.
+
 *Kisan Mitra - Empowering Indian farmers with AI-powered agricultural wisdom*
 
