@@ -6,6 +6,55 @@ Kisan Mitra is an intelligent voice-based agricultural assistant designed to emp
 
 Kisan Mitra addresses the critical need for accessible agricultural expertise by providing a voice-based interface that farmers can use to get immediate answers to their farming-related questions. The system supports multiple Indian languages, making it accessible to farmers across different regions of India.
 
+## Value Proposition
+
+1. **Accessibility**: Breaks down language and literacy barriers through voice-based interaction
+2. **Comprehensive Knowledge**: Integrates information from multiple agricultural domains:
+   - Crop management and planning
+   - Pest and disease control
+   - Weather-related guidance
+   - Market prices and trends
+   - Government schemes and policies
+3. **Cost-Effective**: Provides expert agricultural advice without the need for in-person consultations
+4. **24/7 Availability**: Round-the-clock access to farming knowledge
+5. **Sustainable Practices**: Promotes environmentally conscious and sustainable farming methods
+
+## Key Features
+
+- **Multilingual Support**: Communicates in multiple Indian languages including Hindi, Marathi, Punjabi, and English
+- **Voice-First Interface**: Natural conversation through voice calls, making it accessible to all farmers
+- **Contextual Understanding**: Provides relevant advice based on specific farming contexts and conditions
+- **Knowledge Integration**: Combines traditional farming practices with modern agricultural techniques
+- **Real-time Assistance**: Immediate response to farming queries and emergencies
+
+## Knowledge Base Coverage
+
+The system provides expertise in various agricultural domains:
+
+1. **Crop Management**
+   - Seasonal crop selection
+   - Crop rotation practices
+   - Soil health management
+   - Water management
+
+2. **Risk Management**
+   - Weather-related guidance
+   - Pest and disease control
+   - Emergency response protocols
+   - Market price fluctuations
+
+3. **Sustainable Practices**
+   - Organic farming methods
+   - Water conservation
+   - Soil preservation
+   - Traditional farming wisdom
+
+4. **Economic Aspects**
+   - Market trends and prices
+   - Government schemes
+   - Storage and processing options
+   - Farm diversification
+
 ## Current Implementation Scope
 
 This is a pilot implementation designed to demonstrate the potential of AI-powered agricultural assistance. Key implementation notes:
@@ -25,40 +74,6 @@ This is a pilot implementation designed to demonstrate the potential of AI-power
    - No direct integration with external data providers
    - Weather, market prices, and government scheme information is based on static data
    - Focus is on demonstrating the interaction model and multilingual capabilities
-
-## Future Scope and Enhancements
-
-The system has potential for expansion. Planned future enhancements could include:
-
-1. **Real-time Data and Service Integration**
-   A detailed integration framework connecting with government agricultural portals, weather services, market data feeds, research institutions, and financial services to provide farmers with real-time, location-specific agricultural intelligence and support services.
-
-2. **Advanced AI Capabilities**
-   Implementation of AI technologies including computer vision for crop monitoring, predictive analytics for yield estimation.
-
-3. **Enhanced User Experience and Analytics**
-   Development of a multi-channel interaction platform with WhatsApp integration, and advanced analytics for personalized farming advice, combined with crowd-sourced wisdom validation and detailed impact assessment mechanisms.
-
-### Key Features
-
-- **Multilingual Support**: Communicates in multiple Indian languages including Hindi, Marathi, Punjabi, and English
-- **Voice-First Interface**: Natural conversation through voice calls, making it accessible to all farmers
-- **Contextual Understanding**: Provides relevant advice based on specific farming contexts and conditions
-- **Knowledge Integration**: Combines traditional farming practices with modern agricultural techniques
-- **Real-time Assistance**: Immediate response to farming queries and emergencies
-
-## Value Proposition
-
-1. **Accessibility**: Breaks down language and literacy barriers through voice-based interaction
-2. **Comprehensive Knowledge**: Integrates information from multiple agricultural domains:
-   - Crop management and planning
-   - Pest and disease control
-   - Weather-related guidance
-   - Market prices and trends
-   - Government schemes and policies
-3. **Cost-Effective**: Provides expert agricultural advice without the need for in-person consultations
-4. **24/7 Availability**: Round-the-clock access to farming knowledge
-5. **Sustainable Practices**: Promotes environmentally conscious and sustainable farming methods
 
 ## Technical Architecture
 
@@ -139,34 +154,6 @@ sequenceDiagram
   - Azure OpenAI SDK
   - Azure AI Search SDK
 
-## Knowledge Base Coverage
-
-The system provides expertise in various agricultural domains:
-
-1. **Crop Management**
-   - Seasonal crop selection
-   - Crop rotation practices
-   - Soil health management
-   - Water management
-
-2. **Risk Management**
-   - Weather-related guidance
-   - Pest and disease control
-   - Emergency response protocols
-   - Market price fluctuations
-
-3. **Sustainable Practices**
-   - Organic farming methods
-   - Water conservation
-   - Soil preservation
-   - Traditional farming wisdom
-
-4. **Economic Aspects**
-   - Market trends and prices
-   - Government schemes
-   - Storage and processing options
-   - Farm diversification
-
 ## Deployment Guide
 
 ### Prerequisites
@@ -235,6 +222,19 @@ The system provides expertise in various agricultural domains:
    - Configure Twilio webhook URL to point to your deployed app's endpoint: `https://<app-name>.azurewebsites.net/incoming-call`
    - Test the deployment using Twilio's test call feature
    - Monitor logs: `az webapp log tail --name <app-name> --resource-group <resource-group-name>`
+
+## Future Scope and Enhancements
+
+The system has potential for expansion. Planned future enhancements could include:
+
+1. **Real-time Data and Service Integration**
+   A detailed integration framework connecting with government agricultural portals, weather services, market data feeds, research institutions, and financial services to provide farmers with real-time, location-specific agricultural intelligence and support services.
+
+2. **Advanced AI Capabilities**
+   Implementation of AI technologies including computer vision for crop monitoring, predictive analytics for yield estimation.
+
+3. **Enhanced User Experience and Analytics**
+   Development of a multi-channel interaction platform with WhatsApp integration, and advanced analytics for personalized farming advice, combined with crowd-sourced wisdom validation and detailed impact assessment mechanisms.
 
 ---
 
